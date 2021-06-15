@@ -8,6 +8,8 @@ using Microsoft.Extensions.Hosting;
 using Dapper;
 using System.Data;
 using SalaryDeductions.BLL;
+using SalaryDeductions.DAL;
+using System.IO;
 
 namespace SalaryDeductions
 {
@@ -22,10 +24,13 @@ namespace SalaryDeductions
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        { 
+        {
+            services.AddTransient<ISysParametersProvider, SysParametersProvider>(f => new SysParametersProvider(Configuration.GetConnectionString("ParametersDB")));
+            services.AddTransient<ISysParametersService, SysParametersService>();
             services.AddTransient<IDiscountBusinessRulesService, DiscountBusinessRulesService>();
-            services.AddControllersWithViews();
 
+            services.AddControllersWithViews();
+            
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

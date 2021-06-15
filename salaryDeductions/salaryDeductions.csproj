@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SalaryDeductions.BLL\SalaryDeductions.BLL.csproj" />
+    <ProjectReference Include="..\SalaryDeductions.DAL\SalaryDeductions.DAL.csproj" />
     <ProjectReference Include="..\SalaryDeductions.Entity\SalaryDeductions.Entities.csproj" />
   </ItemGroup>
 
