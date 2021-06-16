@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SalaryDeductions.Entity\SalaryDeductions.Entities.csproj" />
+    <ProjectReference Include="..\SalaryDeductions.Interfaces\SalaryDeductions.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,11 +5,15 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalaryDeductions", "salaryDeductions\SalaryDeductions.csproj", "{0E8301B2-7AD2-4878-896C-C2F8C89A6CB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalaryDeductions.BLL", "SalaryDeductions.BLL\SalaryDeductions.BLL.csproj", "{00792AC9-5727-4D93-8F5A-6261187FD921}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalaryDeductions.BLL", "SalaryDeductions.BLL\SalaryDeductions.BLL.csproj", "{00792AC9-5727-4D93-8F5A-6261187FD921}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalaryDeductions.Entities", "SalaryDeductions.Entity\SalaryDeductions.Entities.csproj", "{F6D58E5B-7187-4CE4-A13A-D7FDD8F305AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalaryDeductions.Entities", "SalaryDeductions.Entity\SalaryDeductions.Entities.csproj", "{F6D58E5B-7187-4CE4-A13A-D7FDD8F305AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalaryDeductions.DAL", "SalaryDeductions.DAL\SalaryDeductions.DAL.csproj", "{5F830C4B-41D5-4E1C-971C-490282C329C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalaryDeductions.DAL", "SalaryDeductions.DAL\SalaryDeductions.DAL.csproj", "{5F830C4B-41D5-4E1C-971C-490282C329C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalaryDeductions.Interfaces", "SalaryDeductions.Interfaces\SalaryDeductions.Interfaces.csproj", "{F9DAA1D1-37A3-4573-B0FE-A1D84D257A6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalaryDeductions.Test", "SalaryDeductions.Test\SalaryDeductions.Test.csproj", "{07432B63-AEBD-4891-AC5C-C7D449F3C95B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{5F830C4B-41D5-4E1C-971C-490282C329C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F830C4B-41D5-4E1C-971C-490282C329C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F830C4B-41D5-4E1C-971C-490282C329C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9DAA1D1-37A3-4573-B0FE-A1D84D257A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9DAA1D1-37A3-4573-B0FE-A1D84D257A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9DAA1D1-37A3-4573-B0FE-A1D84D257A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9DAA1D1-37A3-4573-B0FE-A1D84D257A6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07432B63-AEBD-4891-AC5C-C7D449F3C95B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07432B63-AEBD-4891-AC5C-C7D449F3C95B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07432B63-AEBD-4891-AC5C-C7D449F3C95B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07432B63-AEBD-4891-AC5C-C7D449F3C95B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

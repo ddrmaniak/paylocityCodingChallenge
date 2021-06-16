@@ -74,20 +74,20 @@ export class Home extends Component {
   render() {
     return (
       <div className="row">
-        <div className="col-2">
+        <div className="col-4 col-lg-3">
           <label className="row mb-0 ml-1">Number of paychecks per year</label><input className="row ml-1 mr-1 mb-1 mt-0" type="text" value={this.state.paycheckCount} onChange={this.changePaycheckCount} />
           <label className="row mb-0 ml-1">Paycheck Total</label><input className="row ml-1 mr-1 mb-1 mt-0" type="text" value={this.state.paycheckAmount} onChange={this.changePaycheckAmount} />
           <button id="add-dependent-button" onClick={this.addCovered}>Add Dependent</button>
           <button id="calculate" onClick={event => this.deductionsPreviewData()}>Calculate</button>
         </div>
-        <form id="beneficiaries" action="" className="col-3">{this.state.beneficiaries.map((beneficiary) =>
+        <form id="beneficiaries" action="" className="col-4 col-lg-3">{this.state.beneficiaries.map((beneficiary) =>
           <div>
             <label>{beneficiary.isPrimary ? "Primary Insured" : "Dependent " + beneficiary.key}</label>
             <Beneficiary count={beneficiary.key} changeCallback={this.changeInputValue} key={beneficiary.key} />
           </div>
 
         )}</form>
-        <div id="results" hidden={this.state.showingResults} className="col-7">
+        <div id="results" hidden={this.state.showingResults} className="col-8 col-lg">
           <Results yearlyDeduction={this.state.results.yearlyDeduction}
         perPaycheckDeduction={this.state.results.perPaycheckDeduction}
         netPaycheckAmount={this.state.results.netPaycheckAmount} /></div>
