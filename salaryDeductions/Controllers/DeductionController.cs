@@ -20,9 +20,9 @@ namespace SalaryDeductions.Controllers
         }
 
         [HttpPost]
-        public DeductionPreviewResults Post(List<Beneficiary> beneficiaries)
+        public DeductionPreviewResults Post(BeneficiaryDTO previewResultsParams)
         {
-            return _discountBusinessRules.GetTotalDeductions(beneficiaries);
+            return _discountBusinessRules.GetTotalDeductions(previewResultsParams.Beneficiaries, previewResultsParams.PaycheckAmount, previewResultsParams.PaycheckCount);
         }
     }
 }

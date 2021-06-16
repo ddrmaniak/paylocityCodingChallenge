@@ -11,19 +11,29 @@ export class Home extends Component {
       dependentCount: 0,
       beneficiaries: [],
       showingResults: false,
-      results: []
+      results: [],
+      paycheckAmount: 0.0,
+      paycheckCount: 0
     };
     this.addCovered = this.addCovered.bind(this);
     this.changeInputValue = this.changeInputValue.bind(this);
     this.deductionsPreviewData = this.deductionsPreviewData.bind(this);
+    this.changePaycheckCount = this.changePaycheckCount.bind(this);
+    this.changePaycheckAmount = this.changePaycheckAmount.bind(this);
   }
-  
+
+  async getDefaultPaycheckValues() {
+    const response = await fetch('sysParameters');
+    const data = await response.json();
+    this.setState({ paycheckAmount: data.defaultPaycheckAmount, paycheckCount: data.defaultPaycheckPerYear});
+  }
+
   async deductionsPreviewData() {
     const requestOptions = {
       method: 'POST',
       headers: { Accept: 'application/json',
       'Content-Type': 'application/json' },
-      body: JSON.stringify(this.state.beneficiaries)
+      body: JSON.stringify({ beneficiaries: this.state.beneficiaries, paycheckAmount: this.state.paycheckAmount, paycheckCount: this.state.paycheckCount })
     };
     const response = await fetch('deduction', requestOptions);
     const data = await response.json();
@@ -32,6 +42,7 @@ export class Home extends Component {
   
   componentDidMount() {
     this.addCovered();
+    this.getDefaultPaycheckValues();
   }
 
   addCovered() {
@@ -52,10 +63,20 @@ export class Home extends Component {
     this.setState({ beneficiaries: values });
   }
 
+  changePaycheckCount(e) {
+    this.setState({ paycheckCount: e.target.value});
+  }
+
+  changePaycheckAmount(e) {
+    this.setState({ paycheckAmount: e.target.value });
+  }
+
   render() {
     return (
       <div className="row">
         <div className="col-2">
+          <label className="row mb-0 ml-1">Number of paychecks per year</label><input className="row ml-1 mr-1 mb-1 mt-0" type="text" value={this.state.paycheckCount} onChange={this.changePaycheckCount} />
+          <label className="row mb-0 ml-1">Paycheck Total</label><input className="row ml-1 mr-1 mb-1 mt-0" type="text" value={this.state.paycheckAmount} onChange={this.changePaycheckAmount} />
           <button id="add-dependent-button" onClick={this.addCovered}>Add Dependent</button>
           <button id="calculate" onClick={event => this.deductionsPreviewData()}>Calculate</button>
         </div>

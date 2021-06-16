@@ -14,7 +14,7 @@ namespace SalaryDeductions.BLL
             this.sysParametersProvider = sysParametersProvider;
         }
 
-        public DeductionPreviewResults GetTotalDeductions(IEnumerable<Beneficiary> beneficiaries)
+        public DeductionPreviewResults GetTotalDeductions(IEnumerable<Beneficiary> beneficiaries, decimal paycheckAmount, int paycheckCount)
         {
             var results = new DeductionPreviewResults();
             SysParameters sysparams = sysParametersProvider.Get();
@@ -26,7 +26,8 @@ namespace SalaryDeductions.BLL
                 if (!string.IsNullOrEmpty(beneficiary.Firstname) && beneficiary.Firstname.ToUpper()[0] == sysparams.DiscountLetter) currTotal *= sysparams.DiscountAmountCoefficient;
                 results.YearlyDeduction += currTotal;
             }
-            results.NetPaycheckAmount = 2000 - results.PerPaycheckDeduction;
+            results.PerPaycheckDeduction = results.YearlyDeduction / paycheckCount;
+            results.NetPaycheckAmount = paycheckAmount - results.PerPaycheckDeduction;
             return results;
         }
     }

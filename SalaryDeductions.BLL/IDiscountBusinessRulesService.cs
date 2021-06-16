@@ -5,6 +5,6 @@ namespace SalaryDeductions.BLL
 {
     public interface IDiscountBusinessRulesService
     {
-        DeductionPreviewResults GetTotalDeductions(IEnumerable<Beneficiary> beneficiaries);
+        DeductionPreviewResults GetTotalDeductions(IEnumerable<Beneficiary> beneficiaries, decimal paycheckAmount, int paycheckCount);
     }
 }
