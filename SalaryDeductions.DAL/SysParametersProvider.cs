@@ -42,5 +42,16 @@ namespace SalaryDeductions.DAL
                 var result = connection.Execute(sql, parameters);
             }
         }
+
+        public DefaultParamsDTO GetDefaultParams()
+        {
+            DefaultParamsDTO parameters = null;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var rawresult = connection.Query<DefaultParamsDTO>("select DefaultPaycheckAmount, DefaultPaycheckPerYear from SysParameters");
+                parameters = rawresult.AsList().FirstOrDefault();
+            }
+            return parameters;
+        }
     }
 }

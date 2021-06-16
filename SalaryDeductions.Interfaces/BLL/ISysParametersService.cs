@@ -6,5 +6,6 @@ namespace SalaryDeductions.BLL
     {
         SysParameters Get();
         SysParameters Update(SysParameters parameters);
+        DefaultParamsDTO GetDefaultParams();
     }
 }

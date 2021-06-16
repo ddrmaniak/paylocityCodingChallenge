@@ -10,12 +10,10 @@ namespace SalaryDeductions.Controllers
     [Route("[controller]")]
     public class DeductionController : ControllerBase
     {
-        private readonly ILogger<DeductionController> _logger;
         private readonly IDiscountBusinessRulesService _discountBusinessRules;
 
-        public DeductionController(ILogger<DeductionController> logger, IDiscountBusinessRulesService discountBusinessRules)
+        public DeductionController(IDiscountBusinessRulesService discountBusinessRules)
         {
-            _logger = logger;
             _discountBusinessRules = discountBusinessRules;
         }
 

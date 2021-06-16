@@ -25,5 +25,9 @@ namespace SalaryDeductions.BLL
         {
             return sysParametersProvider.Get();
         }
+        public DefaultParamsDTO GetDefaultParams()
+        {
+            return sysParametersProvider.GetDefaultParams();
+        }
     }
 }

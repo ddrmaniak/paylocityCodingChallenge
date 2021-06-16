@@ -6,5 +6,6 @@ namespace SalaryDeductions.DAL
     {
         SysParameters Get();
         void Update(SysParameters parameters);
+        DefaultParamsDTO GetDefaultParams();
     }
 }

@@ -23,7 +23,7 @@ export class Home extends Component {
   }
 
   async getDefaultPaycheckValues() {
-    const response = await fetch('sysParameters');
+    const response = await fetch('previewParams');
     const data = await response.json();
     this.setState({ paycheckAmount: data.defaultPaycheckAmount, paycheckCount: data.defaultPaycheckPerYear});
   }

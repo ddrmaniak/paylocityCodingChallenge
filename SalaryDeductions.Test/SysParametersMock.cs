@@ -29,6 +29,15 @@ namespace SalaryDeductions.Test
             return sysParameters;
         }
 
+        public DefaultParamsDTO GetDefaultParams()
+        {
+            return new DefaultParamsDTO() 
+            { 
+                DefaultPaycheckAmount = sysParameters.DefaultPaycheckAmount,
+                DefaultPaycheckPerYear = sysParameters.DefaultPaycheckPerYear
+            };
+        }
+
         public void Update(SysParameters parameters)
         {
         }
